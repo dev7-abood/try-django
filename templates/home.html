@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+{% include 'some-contnet.html' %}
+Hello Python
+{% block content %}
+
+{% endblock %}
+
+{#{% extends 'some-contnet.html' %}#}
+<div>
+id number {{ id }}
+link {% url 'members.index' '1' %}
+    {% for name in names %}
+        <div>
+            <p>name {{ name.name }}</p>
+            <p>id :<a href="{% url 'members.index' name.id %}" >{{ name.id }} -------------></a></p>
+        </div>
+        <hr/>
+    {% endfor %}
+</div>
+</body>
+</html>
